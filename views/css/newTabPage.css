@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+body, html{
+    text-align: center;
+    color: white;
+    font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+}
+
+.frontLogo{
+    margin-top: 100px;
+    padding: 30px;
+}
+
+.headline{
+    font-size: 30px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+.button{
+    color: white;
+    font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+    cursor: pointer;
+    background: rgba(0,0,0,.3);
+    border: none;
+    border-radius: 7px;
+    font-size: 18px;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+}

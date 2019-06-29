@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+body, html, button, input, textarea{
+    font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+    color: white;
+}
+
+button, input, textarea{
+    background: transparent;
+    border: none;
+}
+button:focus, input:focus, textarea:focus{
+    outline: none;
+}
+
+input{
+    line-height: 100%;
+}

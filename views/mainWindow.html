@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Nitrogen</title>
+        <link rel="stylesheet" href="css/all.css" />
+        <link rel="stylesheet" href="css/mainWindow.css" />
+        <link rel="stylesheet" href ="https://materialdesignicons.com/cdn/light/0.2.63/css/materialdesignicons-light.min.css" />
+
+        <script>window.$ = window.jQuery = require('jquery');</script>
+        <script src="js/mainWindow.js"></script>
+    </head>
+    <body>
+        <div class="tabBar">
+            
+            <nobr><div class="tabContainer" id="tabContainer"></div></nobr>
+
+            <div class="systemButton borderRight left addTab" id="addTab">
+                <span class="mdil mdil-plus"></span>
+            </div>
+
+            <div class="systemButton close" id="systemClose">
+                <span class="mdil mdil-chevron-double-down"></span>
+            </div>
+            <div class="systemButton" id="systemMax">
+                <span class="mdil mdil-plus" id="systemMaxIcon"></span>
+            </div>
+            <div class="systemButton" id="systemMin">
+                <span class="mdil mdil-chevron-down"></span>
+            </div>
+        </div>
+
+        <div class="tabBar navBar">
+                <div class="systemButton left navBarButton" id="navBack">
+                    <span class="mdil mdil-arrow-left"></span>
+                </div>
+                <div class="systemButton left navBarButton" id="navFwd">
+                    <span class="mdil mdil-arrow-right"></span>
+                </div>
+                <div class="systemButton borderRight left navBarButton" id="navRld">
+                    <span class="mdil mdil-refresh"></span>
+                </div>
+
+                <div class="navBarNav borderRight">
+                    <div class="systemButton left navBarButton siteIcon" id="siteIcon">
+                        <span class="mdil mdil-magnify"></span>
+                    </div>
+                    <input class="navBarInput" placeholder="Search the web" id="searchBar">
+                </div>
+
+                <div class="systemButton navBarButton">
+                    <span class="mdil mdil-settings"></span>
+                </div>
+                <div class="systemButton navBarButton">
+                    <span class="mdil mdil-download"></span>
+                </div>
+        </div>
+
+        <div class="browserWindow" id="viewContainer">
+        </div>
+    </body>
+</html>

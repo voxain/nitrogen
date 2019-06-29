@@ -1,0 +1,132 @@
+body, html{
+    background: rgba(0,0,0,.3);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+body{
+    border: 1px solid rgba(255,255,255,.1);
+    box-sizing: border-box;
+}
+
+.borderRight{
+    border-right: 1px solid rgba(255,255,255,.1);
+    box-sizing: border-box;
+}
+
+.tabBar{
+    width: 100%;
+    height: 35px;
+    -webkit-app-region: drag;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.navBar{
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    -webkit-app-region: no-drag;
+}
+
+.tabContainer{
+    width: calc(100% - 35px * 4);
+    height: 35px;
+    overflow-y: shown;
+    overflow-x: auto;
+    float: left;
+}
+.tabContainer::-webkit-scrollbar{
+    display:none;
+}
+
+.tab{
+    -webkit-app-region: no-drag;
+    height: 35px;
+    width: 200px;
+    line-height: 35px;
+    display: inline-block;
+    cursor: pointer;
+    animation: tabIn .3s ease;
+}
+.tab:hover{
+    background: rgba(255,255,255,.1);
+}
+.tab.active{
+    background: rgba(0,0,0,.5);
+}
+.tab.active:hover{
+    background: rgba(0,0,0,.3);
+}
+
+.tabText{
+    width: calc(199px - 35px * 2);
+    height: 35px;
+    overflow: hidden;
+    float: left;
+}
+
+.systemButton{
+    -webkit-app-region: no-drag;
+    float:right;
+    height: 35px;
+    width: 35px;
+    transition: .1s ease;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+}
+.systemButton:hover{
+    background: rgba(255,255,255,.1);
+}
+.systemButton.close:hover{
+    background: rgba(255,0,0,.5);
+}
+.systemButton.left{
+    float:left;
+}
+
+
+.navBarNav{
+    width: calc(100% - 35px * 5);
+    height: 35px;
+    box-sizing: border-box;
+    float: left;
+}
+.navBarNav:hover{
+    outline: 1px inset rgba(255,255,255,.5);
+}
+.navBarInput{
+    width: calc(100% - 35px * 1);
+    height: 35px;
+    display: inline-block;
+}
+
+.navBarButton.siteIcon{
+    cursor: default;
+    background: transparent;
+}
+.siteIconTab{
+    width: 16px;
+    height: 16px;
+    padding: 9.5px;
+    float: left;
+}
+
+.browserWindow{
+    width: 100%;
+    height: calc(100% - 70px);
+    background: rgba(0,0,0,.5)
+}
+.tabView{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+
+@keyframes tabIn{
+    0%{max-width: 0px}
+    100%{max-width: 200px}
+}

@@ -1,0 +1,35 @@
+{
+  "name": "nitrogen",
+  "productName": "Nitrogen",
+  "version": "1.0.0",
+  "description": "Web browser",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . Nitrogen --asar=true --overwrite --icon=views/assets/icon.ico --prune=true --out=build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmcproductions/nitrogen.git"
+  },
+  "keywords": [
+    "browser",
+    "electron"
+  ],
+  "author": "rmcproductions",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmcproductions/nitrogen/issues"
+  },
+  "homepage": "https://github.com/rmcproductions/nitrogen#readme",
+  "dependencies": {
+    "electron": "^5.0.6",
+    "ewc": "0.0.1",
+    "jquery": "^3.4.1",
+    "node-gyp": "^5.0.1",
+    "windows-blurbehind": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^14.0.0"
+  }
+}
