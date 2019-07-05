@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
-    const {remote} = require('electron');
+    const electron = require('electron');
+    const {remote} = electron;
 
     let nitrogen = {
         currentWindow: remote.getCurrentWindow(),
@@ -137,4 +138,8 @@ $(document).ready(() => {
     $('#navBack').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.goBack());
     $('#navFwd').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.goForward());
     $('#navRld').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.reload());
+
+    $('#openSettings').on('click', () => {
+        electron.ipcRenderer.send('openSettings');
+    });
 });

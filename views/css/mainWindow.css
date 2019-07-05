@@ -1,14 +1,10 @@
 body, html{
-    background: rgba(0,0,0,.3);
+    background: rgba(0,0,0,.1);
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-body{
-    border: 1px solid rgba(255,255,255,.1);
-    box-sizing: border-box;
 }
 
 .borderRight{
@@ -24,7 +20,7 @@ body{
 }
 
 .navBar{
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.3);
     box-sizing: border-box;
     -webkit-app-region: no-drag;
 }
@@ -53,10 +49,10 @@ body{
     background: rgba(255,255,255,.1);
 }
 .tab.active{
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.3);
 }
 .tab.active:hover{
-    background: rgba(0,0,0,.3);
+    background: rgba(0,0,0,.1);
 }
 
 .tabText{
@@ -84,6 +80,10 @@ body{
 }
 .systemButton.left{
     float:left;
+}
+.systemButton.decorative:hover{
+    cursor: default;
+    background: inherit;
 }
 
 
@@ -116,14 +116,13 @@ body{
 .browserWindow{
     width: 100%;
     height: calc(100% - 70px);
-    background: rgba(0,0,0,.5)
+    background: rgba(0,0,0,.3)
 }
 .tabView{
     width: 100%;
     height: 100%;
     display: none;
 }
-
 
 
 @keyframes tabIn{

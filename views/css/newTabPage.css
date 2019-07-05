@@ -3,6 +3,7 @@
 body, html{
     text-align: center;
     color: white;
+    background: black;
     font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
 }
 
@@ -23,7 +24,7 @@ a{
     color: white;
     font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
     cursor: pointer;
-    background: rgba(0,0,0,.3);
+    background: rgba(255,255,255,.05);
     border: none;
     border-radius: 7px;
     font-size: 18px;

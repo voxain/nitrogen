@@ -1,1 +1,115 @@
-NITROGEN SETTINGS
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Nitrogen Settings</title>
+
+        <link rel="stylesheet" href="../css/all.css" />
+        <link rel="stylesheet" href="../css/mainWindow.css" />
+        <link rel="stylesheet" href="../css/controls.css" />
+        <link rel="stylesheet" href ="https://materialdesignicons.com/cdn/light/0.2.63/css/materialdesignicons-light.min.css" />
+        <link rel="stylesheet" href="../css/popup.css" />
+
+        <script>window.$ = window.jQuery = require('jquery');</script>
+        <script src="../js/mainWindow.js"></script>
+        <script src="../js/popup.js"></script>
+    </head>
+    <body>
+
+
+        <div class="popup popup-sidebar">
+            <div class="sidebar-entry" onclick="popupCategory('general')">
+                <div class="sidebar-entry-icon">
+                    <span class="mdil mdil-24px mdil-home"></span>
+                </div>
+                General
+            </div>
+            <div class="sidebar-entry" onclick="popupCategory('appearance')">
+                <div class="sidebar-entry-icon">
+                    <span class="mdil mdil-24px mdil-presentation"></span>
+                </div>
+                Appearance
+            </div>
+            <div class="sidebar-entry" onclick="popupCategory('privacy')">
+                <div class="sidebar-entry-icon">
+                    <span class="mdil mdil-24px mdil-shield"></span>
+                </div>
+                Privacy
+            </div>
+            <div class="sidebar-entry" onclick="popupCategory('about')">
+                <div class="sidebar-entry-icon">
+                    <span class="mdil mdil-24px mdil-information"></span>
+                </div>
+                About
+            </div>
+        </div>
+
+        <div class="popup popup-content active" style="display: block" id="content-general">
+            <div class="content-headline">
+                <span class="mdil mdil-96px mdil-home"></span><br>
+                General
+            </div>
+            <div class="block">
+                <span class="block-label">Show bookmarks bar</span>
+                <input id="setting-bookmark-bar" type="checkbox" />
+                <label for="setting-bookmark-bar"></label>
+            </div>
+        </div>
+
+        <div class="popup popup-content" id="content-appearance">
+            <div class="content-headline">
+                <span class="mdil mdil-96px mdil-presentation"></span><br>
+                Appearance
+            </div>
+            
+            <div class="block">
+                <span class="block-label">Blur background</span>
+                <input id="setting-blur-behind" type="checkbox" />
+                <label for="setting-blur-behind"></label>
+            </div>
+        </div>
+
+        <div class="popup popup-content" id="content-privacy">
+            <div class="content-headline">
+                <span class="mdil mdil-96px mdil-shield"></span><br>
+                Privacy
+            </div>
+            
+            Absolutely no privacy at the moment. Be careful.
+        </div>
+
+        <div style="text-align: center" class="popup popup-content" id="content-about">
+            <div class="content-headline">
+                <img src="../assets/nitrogen.svg" width=96px><br>
+            </div>
+            
+            <span style="font-size: 30px">
+                Nitrogen<br>
+            </span>
+            v0.0.1<br><br>
+            This version of Nitrogen is an early alpha and has just basic features.<br>
+            If you find a bug, feel free to report it <a href="https://github.com/rmcproductions/nitrogen/issues/new">here</a>.<br><br><br>
+            <b>Developers</b><br>
+            <a href="https://rmcprod.me">RMC Productions</a><br><br>
+            <b>Contributors</b><br>
+            None.
+        </div>
+        
+
+
+        <div class="tabBar">
+            <div class="tabBarText">
+                <div class="systemButton left decorative">
+                    <span class="mdil mdil-24px mdil-settings"></span>
+                </div>
+                Settings
+            </div>
+            <div class="systemButton close" id="systemClose">
+                <span class="mdil mdil-chevron-double-down"></span>
+            </div>
+            <div class="systemButton" id="systemMin">
+                <span class="mdil mdil-chevron-down"></span>
+            </div>
+        </div>
+    </body>
+</html>

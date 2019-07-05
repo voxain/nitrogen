@@ -1,0 +1,73 @@
+.popup{
+    height: 100%;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+.popup-sidebar{
+    width: 35%;
+    float: left;
+    background: rgba(0,0,0,.2);
+}
+.popup-content{
+    width: 65%;
+    background: #000;
+    float: left;
+    display: none;
+    padding-left: 10%;
+    transition: .5s ease;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.popup-content.active{
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity: 1;
+}
+
+.tabBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: none;
+}
+.tabBarText{
+    width: calc(100% - 35px * 2);
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    font-size: 19px;
+}
+
+
+.sidebar-entry{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    transition: .2s ease;
+}
+.sidebar-entry:hover{
+    cursor: pointer;
+    background: rgba(255,255,255,.1);
+}
+.sidebar-entry.spacer{
+    margin-top: 20px;
+}
+
+.sidebar-entry-icon{
+    float: left;
+    height: 45px;
+    width: 35px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.content-headline{
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    display: block;
+    font-weight: 300;
+}
