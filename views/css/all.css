@@ -25,6 +25,23 @@ a{
     color: #aaa;
 }
 
+.noHover:hover{
+    background: initial !important;
+    border: initial !important;
+    cursor: initial !important
+}
+
 .mdil-96px{
     font-size: 96px;
+}
+
+
+.progress-outer{
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,.3);
+}
+.progress-inner{
+    height: 4px;
+    background: rgb(0, 153, 255);
 }

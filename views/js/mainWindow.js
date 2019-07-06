@@ -139,7 +139,6 @@ $(document).ready(() => {
     $('#navFwd').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.goForward());
     $('#navRld').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.reload());
 
-    $('#openSettings').on('click', () => {
-        electron.ipcRenderer.send('openSettings');
-    });
+    $('#openSettings').on('click', () => electron.ipcRenderer.send('openSettings'));
+    $('#downloadManager').on('click', () => electron.ipcRenderer.send('openDownloads'));
 });
