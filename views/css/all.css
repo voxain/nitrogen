@@ -44,4 +44,5 @@ a{
 .progress-inner{
     height: 4px;
     background: rgb(0, 153, 255);
+    transition: .2s ease;
 }

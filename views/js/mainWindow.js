@@ -81,7 +81,7 @@ $(document).ready(() => {
 
                 $(webview).on('page-title-updated', e => $(text).text(e.originalEvent.title) );
                 $(webview).on('page-favicon-updated', e => siteIcon.src = e.originalEvent.favicons[0] );
-                $(webview).on('did-finish-load', e => siteIcon.src = '' );
+                $(webview).on('did-stop-loading', e => siteIcon.src = '' );
                 $(webview).on('load-commit', e => {
                     if(!e.originalEvent.isMainFrame) return;
                     siteIcon.src = 'assets/loading.gif';

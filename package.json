@@ -28,6 +28,8 @@
     "ewc": "0.0.1",
     "jquery": "^3.4.1",
     "node-gyp": "^5.0.1",
+    "request": "^2.88.0",
+    "request-progress": "^3.0.0",
     "windows-blurbehind": "^1.0.1"
   },
   "devDependencies": {

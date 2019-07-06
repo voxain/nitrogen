@@ -1,38 +1,78 @@
 $(document).ready(() => {
+    const { ipcRenderer } = require('electron');
+
     let speedChart = echarts.init(document.getElementById('dlspeed'), 'light', {
         renderer: 'canvas',
     });
 
+    function addDownload(filename, id){
+
+        let entry = `<div class="listEntry" id="download-::ID::">
+            <div class="listEntry-icon">
+                <span class="mdil mdil-36px mdil-file"></span>
+            </div>
+            <div class="listEntry-middle">
+                ::FILENAME:: <span id="download-text-::ID::" style="color: #999; font-size: 11px;">0% - 0B/0B - 0B/s</span><br>
+                <div class="progress-outer">
+                    <div class="progress-inner" id="download-progress-::ID::" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="listEntry-icon listEntry-right">
+                <span class="mdil mdil-24px mdil-dots-horizontal"></span>
+            </div>
+        </div>`.replace(/::FILENAME::/g, filename).replace(/::ID::/g, id);
+
+        let listEntry = new DOMParser().parseFromString(entry, 'text/html');
+        $('#downloadList').append(listEntry.body.children);
+    }
+
+    let downloadSpeed = {};
+
+
+    ipcRenderer.on('downloadProgress', (e, data) => {
+        if(!document.getElementById('download-' + data.dlfile.id)) addDownload(data.dlfile.name, data.dlfile.id);
+        $('#download-progress-' + data.dlfile.id).css('width', data.d.percent * 100 + '%');
+        $('#download-text-' + data.dlfile.id).text(`${data.d.percent.toFixed(2)}% - ${(data.d.size.transferred / 1e+6).toFixed(2)}MB/${(data.d.size.total / 1e+6).toFixed(2)}MB - ${(data.d.speed / 1e+6).toFixed(2)}MB/s - ${Math.round(data.d.time.remaining).toFixed(2)}s remaining`);
+        downloadSpeed[data.dlfile.id] = data.d.speed / 1e+6;
+    });
+    ipcRenderer.on('downloadFinish', (e, data) => {
+        $('#download-progress-' + data.dlfile.id).css('width', '100%');
+        $('#download-progress-' + data.dlfile.id).css('background', 'green');
+        $('#download-text-' + data.dlfile.id).text(`Finished - ${(data.dlfile.size / 1e+6).toFixed(2)}MB`);
+        downloadSpeed[data.dlfile.id] = 0;
+    });
+
+    function objSum(obj){
+        let number = 0;
+        Object.values(obj).forEach(v => number+=v);
+        return number;
+    }
+
     function randomData() {
         now = new Date(+now + oneDay);
-        value = 5 + Math.random() * 2;
         return {
             name: now.toString(),
             value: [
                 [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-                value
+                objSum(downloadSpeed)
             ]
-        }
+        };
     }
     
     var data = [];
     var now = +new Date(1997, 9, 3);
     var oneDay = 24 * 3600 * 1000;
-    var value = Math.random() * 7;
     for (var i = 0; i < 60; i++) {
         data.push(randomData());
     }
 
     speedChart.setOption({
-        title: {
-            name: 'Download Speed'
-        },
         grid: {
             show: false,
             height: '80%',
             width: '95%',
             top: 20,
-            left: 20
+            left: 30
         },
         xAxis: {
             type: 'time',
@@ -43,7 +83,10 @@ $(document).ready(() => {
         yAxis: {
             type: 'value',
             splitLine: {
-                show: false
+                show: true,
+                lineStyle: {
+                    color: ['#111']
+                }
             }
         },
         series: [{
@@ -53,6 +96,8 @@ $(document).ready(() => {
             type: 'line',
             showSymbol: false,
             hoverAnimation: false,
+            stack: true,
+            areaStyle: 'white',
             data
         }]
     });
@@ -68,4 +113,6 @@ $(document).ready(() => {
             }]
         });
     }, 1000);
+
+
 });

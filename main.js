@@ -1,6 +1,7 @@
 const electron  = require('electron');
 const vibrancy  = require('ewc');
 const fs        = require('fs');
+const download  = require('./browser/downloads.js');
 const {ipcMain} = electron;
 const config    = require('./config.json');
 
@@ -13,6 +14,41 @@ let windows = {
     settingsWindow: false,
     downloadsWindow: false
 };
+
+var downloadsWindow = null;
+
+function downloadWindow() {
+    if(windows.downloadsWindow) return downloadsWindow;
+    windows.downloadsWindow = true;
+    downloadsWindow = new electron.BrowserWindow({
+        width: 1000,
+        height: 550,
+        resizable: false,
+        transparent: true,
+        frame: false,
+        webPreferences: {
+            nodeIntegration: true,
+            experimentalFeatures: true,
+            webviewTag: true
+        },
+        vibrancy: 'dark'
+    });
+
+    vibrancy.setAcrylic(downloadsWindow, 0x00000020);
+    
+    downloadsWindow.loadFile('views/downloads.html');
+    
+    downloadsWindow.on('ready-to-show', () => {
+        downloadsWindow.show();
+    });
+
+    downloadsWindow.on('close', () => {
+        downloadsWindow = null;
+        windows.downloadsWindow = false;
+    });
+
+    return downloadsWindow;
+}
 
 electron.app.on('ready', () => {
     if(windows.mainWindow) return;
@@ -44,6 +80,17 @@ electron.app.on('ready', () => {
     mainWindow.on('close', () => {
         mainWindow = null;
         windows.mainWindow = false;
+    });
+
+    mainWindow.webContents.session.on('will-download', (e, item, webContents) => {
+        e.preventDefault();
+        let dlfile = new download(item);
+        if(!downloadsWindow) downloadWindow();
+        dlfile.on('progress', d => {
+            dlfile.size = d.size.total;
+            downloadWindow().webContents.send('downloadProgress', {d, dlfile});
+        });
+        dlfile.on('finish', () => downloadWindow().webContents.send('downloadFinish', {dlfile}));
     });
 });
 
@@ -85,32 +132,5 @@ ipcMain.on('openSettings', () => {
 });
 
 ipcMain.on('openDownloads', () => {
-    if(windows.downloadsWindow) return;
-    windows.downloadsWindow = true;
-    let downloadsWindow = new electron.BrowserWindow({
-        width: 1000,
-        height: 550,
-        resizable: false,
-        transparent: true,
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            experimentalFeatures: true,
-            webviewTag: true
-        },
-        vibrancy: 'dark'
-    });
-
-    vibrancy.setAcrylic(downloadsWindow, 0x00000020);
-    
-    downloadsWindow.loadFile('views/downloads.html');
-    
-    downloadsWindow.on('ready-to-show', () => {
-        downloadsWindow.show();
-    });
-
-    downloadsWindow.on('close', () => {
-        downloadsWindow = null;
-        windows.downloadsWindow = false;
-    });
+    downloadWindow();
 });

@@ -19,8 +19,10 @@
     overflow-y: auto;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 20px;
 }
 .popup-content.active{
+    padding-top: 35px;
     opacity: 1;
 }
 
@@ -108,9 +110,9 @@
     transition: .1s ease;
     border: 1px solid transparent;
     transition: .1s ease;
+    overflow: hidden;
 }
 .listEntry:hover{
-    cursor: pointer;
     border: 1px solid white;
 }
 
@@ -130,6 +132,15 @@
 }
 .listEntry-right{
     float: right;
-    width: 60px;
-    height: 100%;
+    width: 40px;
+    height: 40px;
+    transition: .2s ease;
+    box-sizing: border-box;
+    margin: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+.listEntry-right:hover{
+    cursor: pointer;
+    background: rgba(255,255,255,.1);
 }
