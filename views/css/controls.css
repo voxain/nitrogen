@@ -47,3 +47,19 @@ label:before {
     margin-left: 8px;
     margin-bottom: 10px;
 }
+
+select {
+    font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+    border: 1px solid white;
+    -webkit-appearance: none;  
+    appearance:none;
+    background: black;
+    color: #FFF;
+    padding: 5px;
+    padding-left: 10px;
+    width: 200px;
+    font-size: 14px;
+}
+select:focus{
+    outline: none;
+}

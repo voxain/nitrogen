@@ -93,7 +93,6 @@
     text-align: center;
     line-height: 35px;
     border: 1px solid white;
-    border-radius: 1000px;
     transition: .2s ease;
 }
 .panel-button:hover{
@@ -103,15 +102,16 @@
 }
 
 .listEntry{
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    width: 100%;
     height: 60px;
     box-sizing: border-box;
+    transition: .1s ease;
+    border: 1px solid transparent;
     transition: .1s ease;
 }
 .listEntry:hover{
     cursor: pointer;
-    background: rgba(255,255,255,.1);
+    border: 1px solid white;
 }
 
 .listEntry-icon{

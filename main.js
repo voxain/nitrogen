@@ -1,6 +1,12 @@
-const electron = require('electron');
-const vibrancy = require('ewc');
-const {ipcMain}= electron;
+const electron  = require('electron');
+const vibrancy  = require('ewc');
+const fs        = require('fs');
+const {ipcMain} = electron;
+const config    = require('./config.json');
+
+if(!fs.existsSync('userData/settings.json'))
+    fs.writeFileSync('userData/settings.json', fs.readFileSync('browser/defaultSettings.json'));
+let settings = require('./userData/settings.json');
 
 let windows = {
     mainWindow: false,
@@ -44,6 +50,8 @@ electron.app.on('ready', () => {
 electron.app.on('Window-all-closed', () => {
     electron.app.quit();
 });
+
+require('./browser/ipcEvents.js')(ipcMain);
 
 ipcMain.on('openSettings', () => {
     if(windows.settingsWindow) return;

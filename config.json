@@ -1,0 +1,30 @@
+{
+    "search": {
+        "searchEngines": [
+            {
+                "name": "DuckDuckGo",
+                "url": "https://duckduckgo.com/?q=::term::"
+            },
+            {
+                "name": "Google",
+                "url": "https://google.com/search?q=::term::"
+            },
+            {
+                "name": "Bing",
+                "url": "https://bing.com/search?q=::term::"
+            },
+            {
+                "name": "Qwant",
+                "url": "https://qwant.com/?q=::term::"
+            },
+            {
+                "name": "Ecosia",
+                "url": "https://ecosia.org/search?q=::term::"
+            },
+            {
+                "name": "Yahoo",
+                "url": "https://search.yahoo.com/search?p=::term::"
+            }
+        ]
+    }
+}

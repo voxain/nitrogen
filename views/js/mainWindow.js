@@ -1,7 +1,11 @@
 $(document).ready(() => {
 
     const electron = require('electron');
-    const {remote} = electron;
+    const {remote, ipcRenderer} = electron;
+    
+
+    var config      = ipcRenderer.sendSync('getConfig', true);
+    var settings    = ipcRenderer.sendSync('getSettings', true);
 
     let nitrogen = {
         currentWindow: remote.getCurrentWindow(),
@@ -131,13 +135,18 @@ $(document).ready(() => {
             if( $('#searchBar').val().startsWith('nitro://') ) nitrogen.tabs[nitrogen.currentTab].view.src = 'systemPages/' + $('#searchBar').val().split('://')[1] + '.html';
             else if ($('#searchBar').val().startsWith('http://') || $('#searchBar').val().startsWith('https://')) nitrogen.tabs[nitrogen.currentTab].view.loadURL( $('#searchBar').val() );
             else if ($('#searchBar').val().split('.')[1] ) nitrogen.tabs[nitrogen.currentTab].view.loadURL( 'https://' + $('#searchBar').val() );
-            else nitrogen.tabs[nitrogen.currentTab].view.loadURL( 'https://google.com/search?q=' + $('#searchBar').val() );
+            else nitrogen.tabs[nitrogen.currentTab].view.loadURL( config.search.searchEngines.find(s => s.name == settings.search.searchEngine).url.replace( '::term::', $('#searchBar').val() ) );
         }
     });
 
     $('#navBack').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.goBack());
     $('#navFwd').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.goForward());
     $('#navRld').on('click', () => nitrogen.tabs[nitrogen.currentTab].view.reload());
+    $('#navDev').on('click', () => {
+        let view = nitrogen.tabs[nitrogen.currentTab].view;
+        if(view.isDevToolsOpened()) return view.closeDevTools();
+        view.openDevTools();
+    });
 
     $('#openSettings').on('click', () => electron.ipcRenderer.send('openSettings'));
     $('#downloadManager').on('click', () => electron.ipcRenderer.send('openDownloads'));
