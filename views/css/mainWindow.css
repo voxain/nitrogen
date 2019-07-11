@@ -113,6 +113,10 @@ body, html{
     float: left;
 }
 
+#bookmarksBar{
+    display:none;
+}
+
 .browserWindow{
     width: 100%;
     height: calc(100% - 70px);

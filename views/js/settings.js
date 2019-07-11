@@ -12,7 +12,16 @@ $(document).ready(() => {
         $('#searchEngine').append(label);
         $('#searchEngine').val(settings.search.searchEngine);
     });
+
+    if(settings.general.bookmarksBar) $('#setting-bookmark-bar').attr('checked', true);
     
+    $('#setting-bookmark-bar').on('change', () => {
+        ipcRenderer.send('changeSetting', {
+            name: ['general', 'bookmarksBar'],
+            value: document.getElementById('setting-bookmark-bar').checked
+        });
+    });
+
     $('#searchEngine').on('change', () => {
         ipcRenderer.send('changeSetting', {
             name: ['search', 'searchEngine'],

@@ -122,6 +122,10 @@ $(document).ready(() => {
         $('#systemMaxIcon').addClass('mdil-plus');
     }
 
+    if(settings.general.bookmarksBar) {
+        $('#bookmarksBar').css('display', 'block');
+        $('.browserWindow').css('height', 'calc(100% - 105px)');
+    }
 
     nitrogen.tabBar.addTab({active: true});
 

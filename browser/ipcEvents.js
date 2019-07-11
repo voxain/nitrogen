@@ -1,8 +1,9 @@
 const fs        = require('fs');
+const homedir   = require('os').homedir() + '/Nitrogen/';
 
 module.exports = ipc => {
     ipc.on('getSettings', e => {
-        e.returnValue = require('../userData/settings.json');
+        e.returnValue = require(homedir + 'userData/settings.json');
     });
 
     ipc.on('getConfig', e => {
@@ -10,10 +11,10 @@ module.exports = ipc => {
     });
 
     ipc.on('changeSetting', (e, d) => {
-        let settings = require('../userData/settings.json');
+        let settings = require(homedir + 'userData/settings.json');
 
         settings[d.name[0]][d.name[1]] = d.value;
 
-        fs.writeFileSync('./userData/settings.json', JSON.stringify(settings));
+        fs.writeFileSync(homedir + 'userData/settings.json', JSON.stringify(settings));
     });
 };

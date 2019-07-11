@@ -126,7 +126,7 @@
 .listEntry-middle{
     float: left;
     width: calc(100% - 2 * 60px);
-    height: 100%;
+    height: 60px;
     box-sizing: border-box;
     padding-top: 10px;
 }
@@ -143,4 +143,13 @@
 .listEntry-right:hover{
     cursor: pointer;
     background: rgba(255,255,255,.1);
+}
+
+.listEntry-additional{
+    width: 100%;
+    height: 120px;
+    color: #888;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 20px;
 }

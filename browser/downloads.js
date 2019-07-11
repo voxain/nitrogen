@@ -2,6 +2,7 @@ const fs            = require('fs');
 const request       = require('request');
 const progress      = require('request-progress');
 const EventEmitter  = require('events').EventEmitter;
+const homedir       = require('os').homedir();
 
 class Download extends EventEmitter{
     constructor(item){
@@ -9,6 +10,8 @@ class Download extends EventEmitter{
         this.item = item;
         this.id = Date.now() * Math.round( Math.random() * 100 );
         this.name = item.getFilename();
+        this.url = item.getURL();
+        this.start = item.getStartTime();
         this.size = 0;
         console.log('Download started: ' + item.getFilename());
         this.dl = progress( request(item.getURL()) )
@@ -18,7 +21,7 @@ class Download extends EventEmitter{
         .on('end', state => {
             this.emit('finish', state);
         })
-        .pipe( fs.createWriteStream( item.getFilename() ) );
+        .pipe( fs.createWriteStream( homedir + '/Downloads/' + item.getFilename() ) );
     }
 }
 

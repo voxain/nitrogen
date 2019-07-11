@@ -1,4 +1,4 @@
-{
+module.exports = {
     "general": {
         "bookmarksBar": false
     },
@@ -19,4 +19,4 @@
     },
     "developer": {
     }
-}
+};

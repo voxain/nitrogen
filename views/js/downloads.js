@@ -5,8 +5,9 @@ $(document).ready(() => {
         renderer: 'canvas',
     });
 
-    function addDownload(filename, id){
+    function addDownload(filename, id, data){
 
+        let dltime = new Date(data.start);
         let entry = `<div class="listEntry" id="download-::ID::">
             <div class="listEntry-icon">
                 <span class="mdil mdil-36px mdil-file"></span>
@@ -20,7 +21,11 @@ $(document).ready(() => {
             <div class="listEntry-icon listEntry-right">
                 <span class="mdil mdil-24px mdil-dots-horizontal"></span>
             </div>
-        </div>`.replace(/::FILENAME::/g, filename).replace(/::ID::/g, id);
+        </div>
+        <div class="listEntry-additional">
+            <nobr>Download URL: ::URL::</nobr><br>
+            Started: ::TIME_START::
+        </div>`.replace(/::FILENAME::/g, filename).replace(/::ID::/g, id).replace(/::URL::/g, data.url).replace(/::TIME_START::/g, dltime.getHours() + ':' + dltime.getMinutes());
 
         let listEntry = new DOMParser().parseFromString(entry, 'text/html');
         $('#downloadList').append(listEntry.body.children);
@@ -30,9 +35,9 @@ $(document).ready(() => {
 
 
     ipcRenderer.on('downloadProgress', (e, data) => {
-        if(!document.getElementById('download-' + data.dlfile.id)) addDownload(data.dlfile.name, data.dlfile.id);
+        if(!document.getElementById('download-' + data.dlfile.id)) addDownload(data.dlfile.name, data.dlfile.id, data.dlfile);
         $('#download-progress-' + data.dlfile.id).css('width', data.d.percent * 100 + '%');
-        $('#download-text-' + data.dlfile.id).text(`${data.d.percent.toFixed(2)}% - ${(data.d.size.transferred / 1e+6).toFixed(2)}MB/${(data.d.size.total / 1e+6).toFixed(2)}MB - ${(data.d.speed / 1e+6).toFixed(2)}MB/s - ${Math.round(data.d.time.remaining).toFixed(2)}s remaining`);
+        $('#download-text-' + data.dlfile.id).text(`${(data.d.percent * 100).toFixed(2)}% - ${(data.d.size.transferred / 1e+6).toFixed(2)}MB/${(data.d.size.total / 1e+6).toFixed(2)}MB - ${(data.d.speed / 1e+6).toFixed(2)}MB/s - ${Math.round(data.d.time.remaining).toFixed(2)}s remaining`);
         downloadSpeed[data.dlfile.id] = data.d.speed / 1e+6;
     });
     ipcRenderer.on('downloadFinish', (e, data) => {

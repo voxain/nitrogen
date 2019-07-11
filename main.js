@@ -4,10 +4,17 @@ const fs        = require('fs');
 const download  = require('./browser/downloads.js');
 const {ipcMain} = electron;
 const config    = require('./config.json');
+const homedir   = require('os').homedir() + '/Nitrogen/'.replace(/\\/g, '/');
 
-if(!fs.existsSync('userData/settings.json'))
-    fs.writeFileSync('userData/settings.json', fs.readFileSync('browser/defaultSettings.json'));
-let settings = require('./userData/settings.json');
+
+if(!fs.existsSync(homedir)) {
+    fs.mkdirSync(homedir);
+    fs.mkdirSync(homedir + 'userData/');
+}
+
+if(!fs.existsSync(homedir + 'userData/settings.json'))
+    fs.writeFileSync(homedir + 'userData/settings.json', JSON.stringify( require('./browser/defaultSettings.js') ));
+let settings = require(homedir + 'userData/settings.json');
 
 let windows = {
     mainWindow: false,
@@ -69,6 +76,9 @@ electron.app.on('ready', () => {
         vibrancy: 'dark'
     });
 
+    mainWindow.setIcon('views/assets/nitrogen.ico');
+    mainWindow.setOverlayIcon('views/assets/icon.ico', 'Nitrogen');
+
     vibrancy.setAcrylic(mainWindow, 0x00000020);
     
     mainWindow.loadFile('views/mainWindow.html');
@@ -87,10 +97,14 @@ electron.app.on('ready', () => {
         let dlfile = new download(item);
         if(!downloadsWindow) downloadWindow();
         dlfile.on('progress', d => {
+            downloadWindow().setProgressBar(d.percent);
             dlfile.size = d.size.total;
             downloadWindow().webContents.send('downloadProgress', {d, dlfile});
         });
-        dlfile.on('finish', () => downloadWindow().webContents.send('downloadFinish', {dlfile}));
+        dlfile.on('finish', () => {
+            downloadWindow().setProgressBar(0);
+            downloadWindow().webContents.send('downloadFinish', {dlfile});
+        });
     });
 });
 
