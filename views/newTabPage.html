@@ -5,16 +5,74 @@
         <title>New Tab</title>
 
         <link rel="stylesheet" href="css/newTabPage.css" />
+        <link rel="stylesheet" href="css/all.css" />
     </head>
     <body>
-        <img src="assets/nitrogen.svg" class="frontLogo"><br><br>
-        <span class="headline">NITROGEN</span><br>
-        v0.0.1<br><br>
-        <a href="https://github.com/rmcproductions/nitrogen">
-            <button class="button">Get started</button>
-        </a>
-        <a href="https://github.com/rmcproductions/nitrogen/issues/new">
-            <button class="button">Report a bug</button>
-        </a>
+        <div class="ntp-sidebar">
+            <img src="assets/nitrogen.svg" class="frontLogo"><br>
+            <span class="headline">NITROGEN</span><br>
+            v0.0.2<br><br>
+            <a href="https://github.com/rmcproductions/nitrogen/wiki">
+                <div class="button">Get started</div>
+            </a>
+            <a href="https://github.com/rmcproductions/nitrogen/issues/new">
+                <div class="button">Report a bug</div>
+            </a>
+        </div>
+
+        <section class="qa-wrapper">
+            Quick Access<br>
+            <nobr>
+            <a href="https://rmcprod.me/nitrogen/">
+                <div class="qa-item" id="qa-repo"></div>
+            </a>
+            <a href="https://github.com/rmcproductions/nitrogen/issues/new">
+                <div class="qa-item" id="qa-bugs"></div>
+            </a>
+            <a href="https://github.com/rmcproductions/nitrogen/wiki">
+                <div class="qa-item" id="qa-wiki"></div>
+            </a>
+            <a>
+                <div class="qa-item">Blog (Coming Soon)</div>
+            </a>
+        </nobr></section>
+
+        <section class="qa-wrapper">
+            Nitrogen News<br>
+            <nobr>
+            <a>
+                <div class="qa-item"><h3>Nitrogen News Feed</h3>Under development.</div>
+            </a>
+        </nobr></section>
+
+        <section class="qa-wrapper">
+            Weather <span style="color: rgba(255,255,255,.15); font-size: 12px;">Fake wather. No actual data.</span><br>
+            <nobr>
+            <div class="qa-item">
+                <h3>Now</h3>
+                <img style="width: 92px; margin-top: -30px; margin-bottom: -25px;" src="assets/icons/weather/cloudy.svg"><br>
+                24° Cloudy
+            </div>
+            <div class="qa-item">
+                <h3>This night</h3>
+                <img style="width: 92px; margin-top: -30px; margin-bottom: -25px;" src="assets/icons/weather/night.svg"><br>
+                13° Clear
+            </div>
+            <div class="qa-item">
+                <h3>Tomorrow</h3>
+                <img style="width: 92px; margin-top: -40px; margin-bottom: -18px;" src="assets/icons/weather/rainy-5.svg"><br>
+                22° Rainy
+            </div>
+            <div class="qa-item">
+                <h3>Sunday</h3>
+                <img style="width: 92px; margin-top: -40px; margin-bottom: -18px;" src="assets/icons/weather/day.svg"><br>
+                28° Sunny
+            </div>
+            <div class="qa-item">
+                <h3>Monday</h3>
+                <img style="width: 92px; margin-top: -40px; margin-bottom: -18px;" src="assets/icons/weather/day.svg"><br>
+                29° Sunny
+            </div>
+        </nobr></section>
     </body>
 </html>

@@ -13,6 +13,7 @@ class Download extends EventEmitter{
         this.url = item.getURL();
         this.start = item.getStartTime();
         this.size = 0;
+        console.log(this.start)
         console.log('Download started: ' + item.getFilename());
         this.dl = progress( request(item.getURL()) )
         .on('progress', state => {

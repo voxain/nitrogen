@@ -112,6 +112,9 @@
     transition: .1s ease;
     overflow: hidden;
 }
+.listEntry.expanded{
+    height: 120px;
+}
 .listEntry:hover{
     border: 1px solid white;
 }

@@ -76,8 +76,8 @@ electron.app.on('ready', () => {
         vibrancy: 'dark'
     });
 
-    mainWindow.setIcon('views/assets/nitrogen.ico');
-    mainWindow.setOverlayIcon('views/assets/icon.ico', 'Nitrogen');
+    //mainWindow.setIcon('views/assets/nitrogen.ico');
+    //mainWindow.setOverlayIcon('views/assets/icon.ico', 'Nitrogen');
 
     vibrancy.setAcrylic(mainWindow, 0x00000020);
     

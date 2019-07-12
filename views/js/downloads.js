@@ -18,13 +18,13 @@ $(document).ready(() => {
                     <div class="progress-inner" id="download-progress-::ID::" style="width: 0%"></div>
                 </div>
             </div>
-            <div class="listEntry-icon listEntry-right">
+            <div class="listEntry-icon listEntry-right" onclick="$(this.parentElement).toggleClass('expanded')">
                 <span class="mdil mdil-24px mdil-dots-horizontal"></span>
             </div>
-        </div>
-        <div class="listEntry-additional">
-            <nobr>Download URL: ::URL::</nobr><br>
-            Started: ::TIME_START::
+            <div class="listEntry-additional">
+                <nobr>Download URL: ::URL::</nobr><br>
+                Started: ::TIME_START::
+            </div>
         </div>`.replace(/::FILENAME::/g, filename).replace(/::ID::/g, id).replace(/::URL::/g, data.url).replace(/::TIME_START::/g, dltime.getHours() + ':' + dltime.getMinutes());
 
         let listEntry = new DOMParser().parseFromString(entry, 'text/html');
