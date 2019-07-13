@@ -120,4 +120,118 @@ $(document).ready(() => {
     }, 1000);
 
 
+
+
+    let fileTypes = echarts.init(document.getElementById('filetypes'), 'light', {
+        renderer: 'canvas',
+    });
+
+    fileTypes.setOption({
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b} : {c} ({d}%)"
+        },
+        title: {
+            name: 'File Types',
+            x: 'center'
+        },
+        series: [{
+            name: 'File Types',
+            type: 'pie',
+            radius: '65%',
+            center: ['50%', '50%'],
+            showSymbol: false,
+            data: [
+                    {
+                        name: '.zip',
+                        value: 20
+                    },
+                    {
+                        name: '.png',
+                        value: 28
+                    },
+                    {
+                        name: '.exe',
+                        value: 23
+                    },
+                    {
+                        name: '.rar',
+                        value: 3
+                    },
+                    {
+                        name: '.msi',
+                        value: 7
+                    },
+                    {
+                        name: '.mp3',
+                        value: 1
+                    }
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    });
+
+
+    let fileSizes = echarts.init(document.getElementById('filesizes'), 'light', {
+        renderer: 'canvas',
+    });
+
+    fileSizes.setOption({
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b} : {c} ({d}%)"
+        },
+        title: {
+            name: 'File Sizes',
+            x: 'center'
+        },
+        series: [{
+            name: 'File Sizes',
+            type: 'pie',
+            radius: '65%',
+            center: ['50%', '50%'],
+            showSymbol: false,
+            data: [
+                    {
+                        name: '< 1MB',
+                        value: 10
+                    },
+                    {
+                        name: '< 10MB',
+                        value: 30
+                    },
+                    {
+                        name: '< 50MB',
+                        value: 15
+                    },
+                    {
+                        name: '< 500MB',
+                        value: 15
+                    },
+                    {
+                        name: '< 1GB',
+                        value: 11
+                    },
+                    {
+                        name: '> 1GB',
+                        value: 1
+                    }
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    });
+
+
 });

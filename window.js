@@ -22,7 +22,6 @@ class NitrogenWindow extends electron.BrowserWindow{
         this.on('ready-to-show', () => {
             this.show();
         });
-
     }
 }
 

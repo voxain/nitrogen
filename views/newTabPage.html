@@ -6,6 +6,9 @@
 
         <link rel="stylesheet" href="css/newTabPage.css" />
         <link rel="stylesheet" href="css/all.css" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/newTabPage.js"></script>
     </head>
     <body>
         <div class="ntp-sidebar">
@@ -22,7 +25,6 @@
 
         <section class="qa-wrapper">
             Quick Access<br>
-            <nobr>
             <a href="https://rmcprod.me/nitrogen/">
                 <div class="qa-item" id="qa-repo"></div>
             </a>
@@ -35,19 +37,15 @@
             <a>
                 <div class="qa-item">Blog (Coming Soon)</div>
             </a>
-        </nobr></section>
+        </section>
 
         <section class="qa-wrapper">
-            Nitrogen News<br>
-            <nobr>
-            <a>
-                <div class="qa-item"><h3>Nitrogen News Feed</h3>Under development.</div>
-            </a>
-        </nobr></section>
+            Latest commits<br>
+            <section id="append-news"></section>
+        </section>
 
         <section class="qa-wrapper">
             Weather <span style="color: rgba(255,255,255,.15); font-size: 12px;">Fake wather. No actual data.</span><br>
-            <nobr>
             <div class="qa-item">
                 <h3>Now</h3>
                 <img style="width: 92px; margin-top: -30px; margin-bottom: -25px;" src="assets/icons/weather/cloudy.svg"><br>
@@ -78,6 +76,6 @@
                 <img style="width: 92px; margin-top: -40px; margin-bottom: -18px;" src="assets/icons/weather/thunder.svg"><br>
                 26° Thunder
             </div>
-        </nobr></section>
+        </section>
     </body>
 </html>

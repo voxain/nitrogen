@@ -9,11 +9,12 @@ body, html{
     border: none !important;
     background: rgba(0,0,0,.2);
     font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+    animation: slider .5s ease;
 }
 
 .frontLogo{
     margin-top: 25px;
-    width: 30%;
+    height: 50px;
 }
 
 .headline{
@@ -41,10 +42,15 @@ a{
 
 .ntp-sidebar{
     height: 100%;
-    width: 200px;
+    width: 230px;
     float: left;
     padding-right: 30px;
     text-align: right;
+    box-sizing: border-box;
+}
+@keyframes slider{
+    0%  { transform: scale(0.98); opacity: 0; }
+    100%{ transform: scale(1); opacity: 1; }
 }
 
 .qa-wrapper{
@@ -54,6 +60,7 @@ a{
     overflow: hidden;
     overflow-x: auto;
     padding-top: 17px;
+    white-space: nowrap;
 }
 .qa-item{
     width: 250px;
@@ -66,6 +73,7 @@ a{
     text-align: center;
     transition: .2s ease;
     background-size: cover !important;
+    white-space: normal;
 }
 .qa-item:hover{
     cursor: pointer;
