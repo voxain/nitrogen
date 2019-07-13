@@ -1,6 +1,7 @@
 const electron  = require('electron');
 const vibrancy  = require('ewc');
 const fs        = require('fs');
+const NitrogenW = require('./window.js');
 const download  = require('./browser/downloads.js');
 const {ipcMain} = electron;
 const config    = require('./config.json');
@@ -22,24 +23,15 @@ let windows = {
     downloadsWindow: false
 };
 
+
+// DOWNLOAD MANAGER
+
 var downloadsWindow = null;
 
 function downloadWindow() {
     if(windows.downloadsWindow) return downloadsWindow;
     windows.downloadsWindow = true;
-    downloadsWindow = new electron.BrowserWindow({
-        width: 1000,
-        height: 550,
-        resizable: false,
-        transparent: true,
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            experimentalFeatures: true,
-            webviewTag: true
-        },
-        vibrancy: 'dark'
-    });
+    downloadsWindow = new NitrogenW(1000, 550);
 
     vibrancy.setAcrylic(downloadsWindow, 0x00000020);
     
@@ -57,35 +49,19 @@ function downloadWindow() {
     return downloadsWindow;
 }
 
+
+// MAIN WINDOW
+
 electron.app.on('ready', () => {
     if(windows.mainWindow) return;
     windows.mainWindow = true;
-    let mainWindow = new electron.BrowserWindow({
-        width: 1300,
-        height: 800,
-        minHeight: 600,
-        minWidth: 800,
-        resizable: true,
-        transparent: true,
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            experimentalFeatures: true,
-            webviewTag: true
-        },
-        vibrancy: 'dark'
-    });
+    let mainWindow = new NitrogenW(1300, 800, true);
 
     //mainWindow.setIcon('views/assets/nitrogen.ico');
     //mainWindow.setOverlayIcon('views/assets/icon.ico', 'Nitrogen');
 
-    vibrancy.setAcrylic(mainWindow, 0x00000020);
     
     mainWindow.loadFile('views/mainWindow.html');
-    
-    mainWindow.on('ready-to-show', () => {
-        mainWindow.show();
-    });
 
     mainWindow.on('close', () => {
         mainWindow = null;
@@ -117,27 +93,9 @@ require('./browser/ipcEvents.js')(ipcMain);
 ipcMain.on('openSettings', () => {
     if(windows.settingsWindow) return;
     windows.settingsWindow = true;
-    let settingsWindow = new electron.BrowserWindow({
-        width: 630,
-        height: 670,
-        resizable: false,
-        transparent: true,
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            experimentalFeatures: true,
-            webviewTag: true
-        },
-        vibrancy: 'dark'
-    });
-
-    vibrancy.setAcrylic(settingsWindow, 0x00000020);
     
+    let settingsWindow = new NitrogenW(630, 670);
     settingsWindow.loadFile('views/settings.html');
-    
-    settingsWindow.on('ready-to-show', () => {
-        settingsWindow.show();
-    });
 
     settingsWindow.on('close', () => {
         settingsWindow = null;
