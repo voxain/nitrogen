@@ -7,8 +7,10 @@ body, html{
     padding: 0;
     color: white;
     border: none !important;
-    background: #0a0a0a;
     font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+}
+body{
+    background: #0a0a0a;
     animation: slider .5s ease;
 }
 
