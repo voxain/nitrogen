@@ -17,7 +17,7 @@ class NitrogenWindow extends electron.BrowserWindow{
             vibrancy: 'dark'
         });
 
-        vibrancy.setAcrylic(this, 0x00000020);
+        vibrancy.setAcrylic(this, 0x01010100);
 
         this.on('ready-to-show', () => {
             this.show();

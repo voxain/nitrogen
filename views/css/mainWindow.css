@@ -16,17 +16,19 @@ body, html{
     width: 100%;
     height: 35px;
     -webkit-app-region: drag;
-    border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
 .navBar{
     background: rgba(0,0,0,.3);
+    background: #111;
     box-sizing: border-box;
     -webkit-app-region: no-drag;
+    box-shadow: 0px 0px 9px #000;
+    border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
 .tabContainer{
-    width: calc(100% - 35px * 4);
+    width: calc(100% - 35px * 5);
     height: 35px;
     overflow-y: shown;
     overflow-x: auto;
@@ -44,15 +46,15 @@ body, html{
     display: inline-block;
     cursor: pointer;
     animation: tabIn .3s ease;
+    background: #222;
+    border: none;
 }
 .tab:hover{
-    background: rgba(255,255,255,.1);
+    background: #333;
 }
 .tab.active{
-    background: rgba(0,0,0,.3);
-}
-.tab.active:hover{
-    background: rgba(0,0,0,.1);
+    background: #111;
+    box-shadow: 0px 0px 9px #000;
 }
 
 .tabText{

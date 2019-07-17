@@ -36,4 +36,13 @@ $(document).ready(() => {
         });
     });
 
+
+    $('#blurStyle').on('change', () => {
+        /*ipcRenderer.send('changeSetting', {
+            name: ['search', 'privateSearchEngine'],
+            value: $('#privateSearchEngine').val()
+        });*/
+        ipcRenderer.send('settings-blurStyle', $('#blurStyle').val());
+    });
+
 });

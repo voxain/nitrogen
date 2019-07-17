@@ -96,6 +96,9 @@ $(document).ready(() => {
                 $('.tab').removeClass('active');
                 $('#tab-' + number).addClass('active');
 
+                $('.tab').css('z-index', '1');
+                $('#tab-' + number).css('z-index', '5');
+
                 $('.tabView').css('display', 'none');
                 $(nitrogen.tabs[number].view).css('display', 'inline-flex');
 

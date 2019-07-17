@@ -2,10 +2,10 @@
 
 body, html, button, input, textarea{
     font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
-    color: white;
+    color: #ddd;
 }
 body{
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(66, 66, 66, 0.1);
     box-sizing: border-box;
 }
 ::-webkit-scrollbar{

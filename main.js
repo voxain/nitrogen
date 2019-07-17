@@ -30,7 +30,6 @@ var downloadsWindow = null;
 
 function downloadWindow() {
     if(windows.downloadsWindow) return downloadsWindow;
-    windows.downloadsWindow = true;
     downloadsWindow = new NitrogenW(1000, 550);
 
     vibrancy.setAcrylic(downloadsWindow, 0x00000020);
@@ -41,6 +40,7 @@ function downloadWindow() {
         downloadsWindow.show();
     });
 
+    windows.downloadsWindow = downloadsWindow;
     downloadsWindow.on('close', () => {
         downloadsWindow = null;
         windows.downloadsWindow = false;
@@ -54,7 +54,6 @@ function downloadWindow() {
 
 electron.app.on('ready', () => {
     if(windows.mainWindow) return;
-    windows.mainWindow = true;
     let mainWindow = new NitrogenW(1300, 800, true);
 
     //mainWindow.setIcon('views/assets/nitrogen.ico');
@@ -63,6 +62,7 @@ electron.app.on('ready', () => {
     
     mainWindow.loadFile('views/mainWindow.html');
 
+    windows.mainWindow = mainWindow;
     mainWindow.on('close', () => {
         mainWindow = null;
         windows.mainWindow = false;
@@ -92,11 +92,11 @@ require('./browser/ipcEvents.js')(ipcMain);
 
 ipcMain.on('openSettings', () => {
     if(windows.settingsWindow) return;
-    windows.settingsWindow = true;
     
     let settingsWindow = new NitrogenW(630, 670);
     settingsWindow.loadFile('views/settings.html');
 
+    windows.settingsWindow = settingsWindow;
     settingsWindow.on('close', () => {
         settingsWindow = null;
         windows.settingsWindow = false;
@@ -105,4 +105,11 @@ ipcMain.on('openSettings', () => {
 
 ipcMain.on('openDownloads', () => {
     downloadWindow();
+});
+
+ipcMain.on('settings-blurStyle', (e, style) => {
+    Object.values(windows).forEach(w => {
+        if(w == 0) return;
+        vibrancy['set' + style](w, style == 'Gradient' ? 0x22222222 : 0x00000020);
+    });
 });

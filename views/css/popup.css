@@ -10,7 +10,7 @@
 }
 .popup-content{
     width: calc(100% - 220px);
-    background: #000;
+    background: #0a0a0a;
     float: left;
     display: none;
     transition: .2s ease;

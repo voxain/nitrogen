@@ -7,7 +7,7 @@ body, html{
     padding: 0;
     color: white;
     border: none !important;
-    background: rgba(0,0,0,.2);
+    background: #0a0a0a;
     font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
     animation: slider .5s ease;
 }
@@ -72,12 +72,13 @@ a{
     overflow: hidden;
     text-align: center;
     transition: .2s ease;
-    background-size: cover !important;
+    background-size: 120% !important;
     white-space: normal;
 }
 .qa-item:hover{
     cursor: pointer;
     transform: scale(1.05);
+    background-size: 100% !important;
 }
 
 #qa-repo{
