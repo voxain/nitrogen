@@ -6,6 +6,8 @@ const download  = require('./browser/downloads.js');
 const {ipcMain} = electron;
 const config    = require('./config.json');
 const homedir   = require('os').homedir() + '/Nitrogen/'.replace(/\\/g, '/');
+const client = require('discord-rich-presence')('614758934594715658');
+
 
 
 if(!fs.existsSync(homedir)) {
@@ -82,6 +84,15 @@ electron.app.on('ready', () => {
             downloadWindow().webContents.send('downloadFinish', {dlfile});
         });
     });
+
+    client.updatePresence({
+        state: 'Exploring the Web',
+        details: 'Main Menu',
+        startTimestamp: Date.now(),
+        largeImageKey: 'circle',
+        largeImageText: 'Nitrogen Beta',
+        instance: true,
+      });
 });
 
 electron.app.on('Window-all-closed', () => {
@@ -101,10 +112,28 @@ ipcMain.on('openSettings', () => {
         settingsWindow = null;
         windows.settingsWindow = false;
     });
+
+    client.updatePresence({
+        state: 'Exploring the Web',
+        details: 'Settings',
+        startTimestamp: Date.now(),
+        largeImageKey: 'circle',
+        largeImageText: 'Nitrogen Beta',
+        instance: true,
+      });
 });
 
 ipcMain.on('openDownloads', () => {
     downloadWindow();
+
+    client.updatePresence({
+        state: 'Exploring the Web',
+        details: 'Downloads',
+        startTimestamp: Date.now(),
+        largeImageKey: 'circle',
+        largeImageText: 'Nitrogen Beta',
+        instance: true,
+      });
 });
 
 ipcMain.on('settings-blurStyle', (e, style) => {
