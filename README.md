@@ -3,7 +3,7 @@ A beautiful web browser written in javascript.
 
 Under active development.
 
-#RPC Edit by [shinixsensei-dev](https://github.com/shinixsensei-dev)
+# Discord Rich-Presence by [shinixsensei-dev](https://github.com/shinixsensei-dev)
 
 ## How to install
 ------
