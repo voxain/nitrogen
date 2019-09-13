@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/all.css" />
         <link rel="stylesheet" href="css/mainWindow.css" />
         <link rel="stylesheet" href="css/controls.css" />
-        <link rel="stylesheet" href ="https://materialdesignicons.com/cdn/light/0.2.63/css/materialdesignicons-light.min.css" />
+        <link rel="stylesheet" href ="css/fabric-icons-inline.css" />
         <link rel="stylesheet" href="css/popup.css" />
 
         <script>window.$ = window.jQuery = require('jquery');</script>
@@ -21,7 +21,7 @@
         <div class="popup popup-sidebar">
 
             <div class="content-headline">
-                <span class="mdil mdil-48px mdil-settings"></span><br>
+                <span style="font-size: 48px;" class="ms-Icon ms-Icon--Settings"></span><br>
                 Settings
             </div>
 
@@ -29,62 +29,62 @@
 
             <div class="sidebar-entry active" onclick="popupCategory('general', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-home"></span>
+                    <span class="ms-Icon ms-Icon--Home"></span>
                 </div>
                 General
             </div>
             <div class="sidebar-entry" onclick="popupCategory('appearance', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-presentation"></span>
+                    <span class="ms-Icon ms-Icon--Color"></span>
                 </div>
                 Appearance
             </div>
             <div class="sidebar-entry" onclick="popupCategory('tabs', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-tab"></span>
+                    <span class="ms-Icon ms-Icon--Tab"></span>
                 </div>
                 Tabs
             </div>
             <div class="sidebar-entry" onclick="popupCategory('privacy', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-shield"></span>
+                    <span class="ms-Icon ms-Icon--Shield"></span>
                 </div>
                 Privacy
             </div>
             <div class="sidebar-entry" onclick="popupCategory('search', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-magnify"></span>
+                    <span class="ms-Icon ms-Icon--Search"></span>
                 </div>
                 Search
             </div>
             <div class="sidebar-entry" onclick="popupCategory('downloads', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-download"></span>
+                    <span class="ms-Icon ms-Icon--Download"></span>
                 </div>
                 Downloads
             </div>
             <div class="sidebar-entry" onclick="popupCategory('updates', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-flash"></span>
+                    <span class="ms-Icon ms-Icon--History"></span>
                 </div>
                 Updates
             </div>
             <div class="sidebar-entry" onclick="popupCategory('about', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-information"></span>
+                    <span class="ms-Icon ms-Icon--Info"></span>
                 </div>
                 About
             </div>
 
             <div class="sidebar-entry spacer" onclick="popupCategory('developer', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-unfold-more-vertical"></span>
+                    <span class="ms-Icon ms-Icon--DeveloperTools"></span>
                 </div>
                 Developer
             </div>
             <div class="sidebar-entry" onclick="popupCategory('software', this)">
                 <div class="sidebar-entry-icon">
-                    <span class="mdil mdil-24px mdil-chart-pie"></span>
+                    <span class="ms-Icon ms-Icon--PieSingle"></span>
                 </div>
                 Third-party-software
             </div>
@@ -116,7 +116,7 @@
             Blur Style: 
             <select id="blurStyle">
                 <option value="Acrylic">Acrylic</option>
-                <option value="BlurBehind">BlurBehind</option>
+                <option value="BlurBehind" selected>BlurBehind</option>
                 <option value="TransparentGradient">Transparent</option>
                 <option value="Gradient">Solid</option>
             </select>
@@ -199,7 +199,7 @@
             <h3>Third-party Software</h3>
             Check the package.json file to see all dependencies. A list will appear here soon.
             <h3>Licenses</h3>
-            <b>Generic icons</b> in the browser window are <a href="https://cdn.materialdesignicons.com/light/0.2.63/">Material Design Icons Light</a>.<br>
+            <b>Generic icons</b> in the browser window are <a href="https://developer.microsoft.com/en-us/fabric#/">Fabric Icons</a>.<br>
             <b>Weather icons</b> on the new tab page are from <a href="https://www.amcharts.com/free-animated-svg-weather-icons/">amcharts.com</a>.
         </div>
         
@@ -213,10 +213,10 @@
                 Settings
             </div>-->
             <div class="systemButton close" id="systemClose">
-                <span class="mdil mdil-chevron-double-down"></span>
+                <span class="ms-Icon ms-Icon--Cancel"></span>
             </div>
             <div class="systemButton" id="systemMin">
-                <span class="mdil mdil-chevron-down"></span>
+                <span class="ms-Icon ms-Icon--ChevronDown"></span>
             </div>
         </div>
     </body>

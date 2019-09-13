@@ -25,7 +25,7 @@ $(document).ready(() => {
                 tabX.classList = 'systemButton tabX';
         
                 let icon = document.createElement('span');
-                icon.classList = 'mdil mdil-chevron-double-down tabX';
+                icon.classList = 'ms-Icon ms-Icon--Cancel tabX';
         
                 let siteIcon = document.createElement('img');
                 siteIcon.classList = 'siteIconTab';
@@ -79,6 +79,7 @@ $(document).ready(() => {
                     siteIcon.src = '';
                 });
 
+                $(webview.getWebContents()).on('keypress', e => console.log("AAA") );
                 $(webview).on('page-title-updated', e => $(text).text(e.originalEvent.title) );
                 $(webview).on('page-favicon-updated', e => siteIcon.src = e.originalEvent.favicons[0] );
                 $(webview).on('did-stop-loading', e => siteIcon.src = '' );

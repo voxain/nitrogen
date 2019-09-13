@@ -5,60 +5,61 @@
         <title>Nitrogen</title>
         <link rel="stylesheet" href="css/all.css" />
         <link rel="stylesheet" href="css/mainWindow.css" />
-        <link rel="stylesheet" href ="https://materialdesignicons.com/cdn/light/0.2.63/css/materialdesignicons-light.min.css" />
+        <link rel="stylesheet" href ="css/fabric-icons-inline.css" />
 
         <script>window.$ = window.jQuery = require('jquery');</script>
         <script src="js/mainWindow.js"></script>
+        <script src="js/keybinds.js"></script>
     </head>
     <body>
         <div class="tabBar">
             <div class="systemButton left">
-                <span class="mdil mdil-menu mdil-24px"></span>
+                <span class="ms-Icon ms-Icon--CollapseMenu"></span>
             </div>
             
             <nobr><div class="tabContainer" id="tabContainer"></div></nobr>
 
             <div class="systemButton borderRight left addTab" id="addTab">
-                <span class="mdil mdil-plus"></span>
+                <span class="ms-Icon ms-Icon--Add"></span>
             </div>
 
             <div class="systemButton close" id="systemClose">
-                <span class="mdil mdil-chevron-double-down"></span>
+                <span class="ms-Icon ms-Icon--Cancel"></span>
             </div>
             <div class="systemButton" id="systemMax">
-                <span class="mdil mdil-plus" id="systemMaxIcon"></span>
+                <span class="ms-Icon ms-Icon--FullScreen" id="systemMaxIcon"></span>
             </div>
             <div class="systemButton" id="systemMin">
-                <span class="mdil mdil-chevron-down"></span>
+                <span class="ms-Icon ms-Icon--ChevronDown"></span>
             </div>
         </div>
 
         <div class="tabBar navBar">
             <div class="systemButton left navBarButton" id="navBack">
-                <span class="mdil mdil-arrow-left"></span>
+                <span class="ms-Icon ms-Icon--ChromeBack"></span>
             </div>
             <div class="systemButton left navBarButton" id="navFwd">
-                <span class="mdil mdil-arrow-right"></span>
+                <span class="ms-Icon ms-Icon--ChromeBackMirrored"></span>
             </div>
             <div class="systemButton borderRight left navBarButton" id="navRld">
-                <span class="mdil mdil-refresh"></span>
+                <span class="ms-Icon ms-Icon--Refresh"></span>
             </div>
             <div class="systemButton borderRight left navBarButton" id="navDev">
-                <span class="mdil mdil-unfold-more-vertical"></span>
+                <span class="ms-Icon ms-Icon--DeveloperTools"></span>
             </div>
 
             <div class="navBarNav borderRight">
                 <div class="systemButton left navBarButton siteIcon" id="siteIcon">
-                    <span class="mdil mdil-magnify"></span>
+                    <span class="ms-Icon ms-Icon--Search"></span>
                 </div>
                 <input class="navBarInput" placeholder="Search the web" id="searchBar">
             </div>
 
             <div class="systemButton navBarButton" id="openSettings">
-                <span class="mdil mdil-settings"></span>
+                <span class="ms-Icon ms-Icon--Settings"></span>
             </div>
             <div class="systemButton navBarButton" id="downloadManager">
-                <span class="mdil mdil-download"></span>
+                <span class="ms-Icon ms-Icon--Download"></span>
             </div>
         </div>
 

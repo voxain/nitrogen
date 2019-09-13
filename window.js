@@ -8,6 +8,7 @@ class NitrogenWindow extends electron.BrowserWindow{
             height,
             resizable: resizable || false,
             transparent: true,
+            show: false,
             frame: false,
             webPreferences: {
                 nodeIntegration: true,
@@ -17,7 +18,7 @@ class NitrogenWindow extends electron.BrowserWindow{
             vibrancy: 'dark'
         });
 
-        vibrancy.setAcrylic(this, 0x01010100);
+        vibrancy.setBlurBehind(this, 0x01010100);
 
         this.on('ready-to-show', () => {
             this.show();

@@ -10,7 +10,7 @@ $(document).ready(() => {
         let dltime = new Date(data.start);
         let entry = `<div class="listEntry" id="download-::ID::">
             <div class="listEntry-icon">
-                <span class="mdil mdil-36px mdil-file"></span>
+                <span class="ms-Icon ms-Icon--Document"></span>
             </div>
             <div class="listEntry-middle">
                 ::FILENAME:: <span id="download-text-::ID::" style="color: #999; font-size: 11px;">0% - 0B/0B - 0B/s</span><br>
@@ -19,7 +19,7 @@ $(document).ready(() => {
                 </div>
             </div>
             <div class="listEntry-icon listEntry-right" onclick="$(this.parentElement).toggleClass('expanded')">
-                <span class="mdil mdil-24px mdil-dots-horizontal"></span>
+                <span class="ms-Icon ms-Icon--More"></span>
             </div>
             <div class="listEntry-additional">
                 <nobr>Download URL: ::URL::</nobr><br>

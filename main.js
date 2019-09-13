@@ -54,6 +54,18 @@ function downloadWindow() {
 
 electron.app.on('ready', () => {
     if(windows.mainWindow) return;
+
+    let loadingWindow = new electron.BrowserWindow({
+        width: 250,
+        height: 400,
+        frame: false,
+        transparent: true,
+        resizable: false
+    });
+
+    loadingWindow.loadFile('views/loadingWindow/loading.html');
+    loadingWindow.on('closed', () => loadingWindow = null);
+
     let mainWindow = new NitrogenW(1300, 800, true);
 
     //mainWindow.setIcon('views/assets/nitrogen.ico');
@@ -66,6 +78,10 @@ electron.app.on('ready', () => {
     mainWindow.on('close', () => {
         mainWindow = null;
         windows.mainWindow = false;
+    });
+
+    mainWindow.on('ready-to-show', () => {
+        loadingWindow.close();
     });
 
     mainWindow.webContents.session.on('will-download', (e, item, webContents) => {
