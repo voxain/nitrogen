@@ -65,6 +65,7 @@ a{
     white-space: nowrap;
 }
 .qa-item{
+    border-radius: 12px;
     width: 250px;
     height: 150px;
     background: rgba(0,0,0,.4);

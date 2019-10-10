@@ -9,6 +9,9 @@ $(document).ready(() => {
 
     let nitrogen = {
         currentWindow: remote.getCurrentWindow(),
+
+        // The tab switcher code. Undocumented af, be careful, lone ranger.
+        // Somewhere in here, the task switcher bug is hidden, but I am either too lazy or too dumb to find and fix it.
     
         tabBar: {
             addTab: (options) => {
@@ -70,7 +73,6 @@ $(document).ready(() => {
                     $(webview).remove();
                     if(thisTab.number <= nitrogen.currentTab) nitrogen.currentTab -= 1;
                     $('.tab').attr('id', i => 'tab-' + i);
-                    console.log(nitrogen.currentTab);
                     if(thisTab.number == nitrogen.currentTab) nitrogen.tabBar.switchTab(nitrogen.tabs.length - 1);
                 };
 
@@ -111,6 +113,10 @@ $(document).ready(() => {
         currentTab: -1
     };
 
+
+    // maxUnmax is creating some weird issues with transparent windows not really being Maxed.
+    // This is most likely due to the custom title bar, but I haven't found a fix for this so far.
+
     function maxUnmax(){
         if(!nitrogen.currentWindow.isMaximized() && nitrogen.currentWindow.isMaximizable()) {
             nitrogen.currentWindow.maximize();
@@ -131,6 +137,7 @@ $(document).ready(() => {
         $('.browserWindow').css('height', 'calc(100% - 105px)');
     }
 
+    // Open default tab
     nitrogen.tabBar.addTab({active: true});
 
     $('#addTab').on('click', () => nitrogen.tabBar.addTab({active: true}) );

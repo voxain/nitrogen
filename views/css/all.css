@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca:300&display=swap');
 
 body, html, button, input, textarea{
-    font-family: 'Titillium Web', Loma, Segoe UI, Arial, sans-serif;
+    font-family: 'Proxima Nova', 'Lexend Deca', Loma, Segoe UI, Arial, sans-serif;
     color: #ddd;
 }
 body{

@@ -8,6 +8,9 @@ const config    = require('./config.json');
 const homedir   = require('os').homedir() + '/Nitrogen/'.replace(/\\/g, '/');
 
 
+
+// Checking for User Data and creating if non-existant
+
 if(!fs.existsSync(homedir)) {
     fs.mkdirSync(homedir);
     fs.mkdirSync(homedir + 'userData/');
@@ -23,6 +26,8 @@ let windows = {
     downloadsWindow: false
 };
 
+
+// **WINDOWS**
 
 // DOWNLOAD MANAGER
 
@@ -83,6 +88,8 @@ electron.app.on('ready', () => {
     mainWindow.on('ready-to-show', () => {
         loadingWindow.close();
     });
+
+    // Catch download events and pass them to download manager.
 
     mainWindow.webContents.session.on('will-download', (e, item, webContents) => {
         e.preventDefault();

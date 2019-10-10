@@ -15,9 +15,10 @@ class NitrogenWindow extends electron.BrowserWindow{
                 experimentalFeatures: true,
                 webviewTag: true
             },
-            vibrancy: 'dark'
+            vibrancy: 'dark' /* For MacOS Users if 'ewc' package is disabled. */
         });
 
+        // Set Blurbehind option by default, acrylic is having some problems (on 1903 at least.)
         vibrancy.setBlurBehind(this, 0x01010100);
 
         this.on('ready-to-show', () => {

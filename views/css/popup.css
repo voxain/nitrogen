@@ -6,7 +6,7 @@
 .popup-sidebar{
     width: 220px;
     float: left;
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.0);
 }
 .popup-content{
     width: calc(100% - 220px);
@@ -71,6 +71,14 @@
     border-left-color: white;
 }
 
+.sidebar-separator{
+    width: 80%;
+    height: 1px;
+    margin-left: 10%;
+    margin-top: 20px;
+    background: rgba(255,255,255,.15);
+}
+
 .sidebar-entry-icon{
     float: left;
     height: 45px;
@@ -86,7 +94,7 @@
     line-height: 50px;
     font-size: 24px;
     display: block;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .panel-button{

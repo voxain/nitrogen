@@ -29,6 +29,7 @@ body, html {
 }
 
 .loading-inner{
+    float: right;
     width: 50%;
     height: 100%;
     background: #555758;
@@ -37,9 +38,19 @@ body, html {
 
 @keyframes loadingBar{
     0%{
-        transform: translateX(-100%);
+        transform: translateX(-200%);
+        width: 50%;
+    }
+    50%{
+        transform: translateX(0%);
+        width: 100%;
+    }
+    70%{
+        transform: translateX(00%);
+        width: 10%;
     }
     100%{
         transform: translateX(200%);
+        width: 0%;
     }
 }
