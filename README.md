@@ -1,7 +1,8 @@
+# **DISCONTINUED**
+
 # Nitrogen
 A beautiful web browser written in javascript.
 
-Under active development.
 
 ## How to install
 ------
