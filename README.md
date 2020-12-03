@@ -4,6 +4,8 @@
 A beautiful web browser written in javascript.
 
 
+# Discord Rich-Presence by [shinixsensei-dev](https://github.com/shinixsensei-dev)
+
 ## How to install
 ------
 Windows users: Head over to the [releases page](https://github.com/rmcproductions/nitrogen/releases) and download the latest .exe.

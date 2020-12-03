@@ -24,6 +24,7 @@
   "homepage": "https://github.com/rmcproductions/nitrogen#readme",
   "dependencies": {
     "@mdi/light-font": "^0.2.63",
+    "discord-rich-presence": "0.0.8",
     "echarts": "^4.2.1",
     "electron": "^9.1.0",
     "ewc": "0.0.1",
